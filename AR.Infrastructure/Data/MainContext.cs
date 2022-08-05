@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AR.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AR.Infrastructure.Data
 {
@@ -14,7 +10,7 @@ namespace AR.Infrastructure.Data
         {
         }
 
-        //public DbSet<FuncionarioCLT> FuncionarioCLT { get; set; }
-        //public DbSet<FuncionarioPJ> FuncionarioPJ { get; set; }
+        public DbSet<EmployeeCLT> EmployeeCLT { get; set; }
+        public DbSet<EmployeePJ> EmployeePJ { get; set; }
     }
 }
