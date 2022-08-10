@@ -1,4 +1,10 @@
+using AR.Domain.Interfaces;
+using AR.Infrastructure.Data;
+using AR.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 
@@ -6,6 +12,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IEmployeeCLTRepository, EmployeeCLTRepository>();
+builder.Services.AddScoped<IEmployeePJRepository, EmployeePJRepository>();
+
+builder.Services.AddDbContext<MainContext>(options => 
+    options.UseSqlServer(configuration.GetConnectionString("EmployeeConnectionString")));
 
 var app = builder.Build();
 

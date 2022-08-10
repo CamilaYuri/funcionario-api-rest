@@ -2,7 +2,7 @@
 {
     public class EmployeeCLT : EmployeeBase
     {
-        public EmployeeCLT(Guid id, string name, string email, string cpf) 
+        public EmployeeCLT(int id, string name, string email, string cpf) 
             : base(id, name, email)
         {
             CPF = cpf;

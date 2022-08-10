@@ -2,7 +2,7 @@
 {
     public class EmployeePJ : EmployeeBase
     {
-        public EmployeePJ(Guid id, string name, string email, string cnpj) 
+        public EmployeePJ(int id, string name, string email, string cnpj) 
             : base (id, name, email)
         {
             CNPJ = cnpj;
