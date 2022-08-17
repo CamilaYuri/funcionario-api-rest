@@ -8,6 +8,8 @@
             CPF = cpf;
         }
 
+        public EmployeeCLT() {}
+
         public decimal Salario { get; private set; }
         public string CPF { get; set; }
 

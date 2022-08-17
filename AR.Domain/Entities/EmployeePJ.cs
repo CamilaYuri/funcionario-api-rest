@@ -8,6 +8,9 @@
             CNPJ = cnpj;
         }
 
+        public EmployeePJ()
+        {}
+
         public decimal Salario { get; private set; }
         public string CNPJ { get; set; }
 

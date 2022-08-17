@@ -1,5 +1,5 @@
 ﻿using AR.Domain.Entities;
-using AR.Domain.Interfaces;
+using AR.Domain.Interfaces.Repositories;
 using AR.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,14 +30,13 @@ namespace AR.Infrastructure.Repositories
             return await _db.EmployeeCLT.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task DeleteEmployee(int id)
+        public async Task<int> DeleteEmployee(EmployeeCLT employeeCLT)
         {
-            EmployeeCLT employee = await GetEmployeeById(id);
-            _db.EmployeeCLT.Remove(employee);
-            await _db.SaveChangesAsync();
+            _db.EmployeeCLT.Remove(employeeCLT);
+            return await _db.SaveChangesAsync();
         }
 
-        public async Task UpdateEmployee(EmployeeCLT employeeCLT)
+        public async Task<int> UpdateEmployee(EmployeeCLT employeeCLT)
         {
             _db.EmployeeCLT.Update(employeeCLT);
             return await _db.SaveChangesAsync();

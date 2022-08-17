@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AR.Domain.Interfaces
+namespace AR.Domain.Interfaces.Repositories
 {
     public interface IEmployeePJRepository
     {
         Task AddEmployee(EmployeePJ employeePJ);
         Task<IEnumerable<EmployeePJ>> GetAllEmployees();
         Task<EmployeePJ> GetEmployeeById(int id);
-        Task DeleteEmployee(int id);
-        Task UpdateEmployee(EmployeePJ employeePJ);
+        Task<int> DeleteEmployee(EmployeePJ employeePJ);
+        Task<int> UpdateEmployee(EmployeePJ employeePJ);
     }
 }

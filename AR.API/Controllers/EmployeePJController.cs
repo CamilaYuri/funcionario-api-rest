@@ -1,6 +1,5 @@
 ﻿using AR.Domain.DTO;
 using AR.Domain.Interfaces.Services;
-using AR.Domain.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,20 +7,20 @@ namespace AR.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeCLTController : ControllerBase
+    public class EmployeePJController : ControllerBase
     {
-        private readonly IEmployeeCLTService _service;
+        private readonly IEmployeePJService _service;
 
-        public EmployeeCLTController(IEmployeeCLTService service)
+        public EmployeePJController(IEmployeePJService service)
         {
             _service = service;
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var data =  await _service.GetAll();
-            if(data == null)
+            var data = await _service.GetAll();
+            if (data == null)
                 return NotFound();
 
             return Ok(data);
@@ -38,7 +37,7 @@ namespace AR.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(EmployeeCltDTO employee)
+        public async Task<IActionResult> Add(EmployeePjDTO employee)
         {
             try
             {
@@ -52,7 +51,7 @@ namespace AR.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(EmployeeCltDTO employee)
+        public async Task<IActionResult> Update(EmployeePjDTO employee)
         {
             try
             {
